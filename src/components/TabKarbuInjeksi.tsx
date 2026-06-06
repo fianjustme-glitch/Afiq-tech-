@@ -31,24 +31,24 @@ export function TabKarbuInjeksi({ isInjection, totalCc, rasioKompresi }: any) {
       
       {/* Top Summaries */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-         <div className="bg-[#111] border border-white/5 rounded-lg p-4 flex flex-col items-center justify-center text-center">
+         <div className="bg-[#06141c] border border-teal-500/10 rounded-lg p-4 flex flex-col items-center justify-center text-center">
             <span className="text-[9px] text-gray-500 font-mono tracking-widest mb-1">CC KALKULATOR</span>
-            <span className="text-xl font-display font-bold text-red-500">{totalCc > 0 ? totalCc.toFixed(1) : '-'}</span>
+            <span className="text-xl font-display font-bold text-teal-400">{totalCc > 0 ? totalCc.toFixed(1) : '-'}</span>
          </div>
-         <div className="bg-[#111] border border-white/5 rounded-lg p-4 flex flex-col items-center justify-center text-center">
+         <div className="bg-[#06141c] border border-teal-500/10 rounded-lg p-4 flex flex-col items-center justify-center text-center">
             <span className="text-[9px] text-gray-500 font-mono tracking-widest mb-1">SISTEM</span>
-            <span className="text-xl font-display font-bold text-red-500 uppercase">{isInjection ? 'FI' : 'KARBU'}</span>
+            <span className="text-xl font-display font-bold text-teal-400 uppercase">{isInjection ? 'FI' : 'KARBU'}</span>
          </div>
-         <div className="bg-[#111] border border-white/5 rounded-lg p-4 flex flex-col items-center justify-center text-center">
+         <div className="bg-[#06141c] border border-teal-500/10 rounded-lg p-4 flex flex-col items-center justify-center text-center">
             <span className="text-[9px] text-gray-500 font-mono tracking-widest mb-1">KOMPRESI</span>
-            <span className="text-xl font-display font-bold text-red-500">{rasioKompresi > 0 ? rasioKompresi.toFixed(2) : '-'}</span>
+            <span className="text-xl font-display font-bold text-teal-400">{rasioKompresi > 0 ? rasioKompresi.toFixed(2) : '-'}</span>
          </div>
       </div>
 
-      <div className="border border-red-900/30 rounded-xl p-6 bg-[#0a0a0a]">
+      <div className="border border-teal-900/30 rounded-xl p-6 bg-[#020b12]">
         <div>
            <label className="text-sm font-bold text-gray-200 block mb-2">Sistem Bahan Bakar</label>
-           <div className="inline-flex items-center px-3 py-1.5 rounded-md bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono font-bold tracking-widest">
+           <div className="inline-flex items-center px-3 py-1.5 rounded-md bg-teal-400/10 border border-teal-400/20 text-teal-300 text-xs font-mono font-bold tracking-widest">
              {isInjection ? 'INJEKSI (FI)' : 'KARBURATOR'}
            </div>
         </div>
@@ -56,12 +56,12 @@ export function TabKarbuInjeksi({ isInjection, totalCc, rasioKompresi }: any) {
 
       {isInjection ? (
         <>
-        <div className="border border-red-500/30 bg-red-950/10 rounded-xl p-6">
-          <h3 className="text-[10px] font-mono text-red-500 mb-2 tracking-widest flex items-center gap-2">
+        <div className="border border-teal-400/30 bg-teal-950/10 rounded-xl p-6">
+          <h3 className="text-[10px] font-mono text-teal-400 mb-2 tracking-widest flex items-center gap-2">
             <AlertTriangle className="w-3 h-3" /> REKOMENDASI {totalCc >= 250 ? 'MOGE / BIG BIKE' : 'HARIAN & RACING'}
           </h3>
           <div className="flex gap-4 items-start mt-4">
-             <div className="px-2 py-1 bg-red-600 rounded text-xs font-bold text-white font-mono">FI</div>
+             <div className="px-2 py-1 bg-teal-500 rounded text-xs font-bold text-white font-mono">FI</div>
              <div>
                 <h4 className="text-sm font-bold text-gray-200">
                   {totalCc >= 250 ? 'REFLASH / PIGGYBACK / STANDALONE' : 'ECU AFTERMARKET WAJIB'}
@@ -75,14 +75,14 @@ export function TabKarbuInjeksi({ isInjection, totalCc, rasioKompresi }: any) {
           </div>
         </div>
 
-        <div className="border border-red-900/30 rounded-xl p-6 bg-[#0a0a0a]">
-          <h3 className="text-xs font-mono text-red-500 mb-4 tracking-widest">LEVEL REMAP ECU</h3>
+        <div className="border border-teal-900/30 rounded-xl p-6 bg-[#020b12]">
+          <h3 className="text-xs font-mono text-teal-400 mb-4 tracking-widest">LEVEL REMAP ECU</h3>
           <div className="space-y-2">
             {remapLevels.map((lvl, i) => {
               const highlights = totalCc >= lvl.min && totalCc < lvl.max;
               
               return (
-              <div key={i} className={cn("p-4 rounded-lg bg-[#111] border transition-colors flex justify-between", highlights ? "border-red-500/50" : "border-white/5" )}>
+              <div key={i} className={cn("p-4 rounded-lg bg-[#06141c] border transition-colors flex justify-between", highlights ? "border-teal-400/50" : "border-teal-500/10" )}>
                  <div>
                     <span className="text-[10px] text-gray-500 font-mono block mb-1">{lvl.range}</span>
                     <p className="text-sm text-gray-300 mb-1">{lvl.desc}</p>
@@ -90,7 +90,7 @@ export function TabKarbuInjeksi({ isInjection, totalCc, rasioKompresi }: any) {
                  </div>
                  <div className="text-right flex flex-col justify-between">
                     <span className="text-xs text-gray-500">{lvl.title}</span>
-                    {highlights && <span className="text-[10px] text-red-500 font-mono mt-2">← kamu</span>}
+                    {highlights && <span className="text-[10px] text-teal-400 font-mono mt-2">← kamu</span>}
                  </div>
               </div>
             )})}
@@ -107,11 +107,11 @@ export function TabKarbuInjeksi({ isInjection, totalCc, rasioKompresi }: any) {
       )}
 
       {/* Panduan AFR & Busi */}
-      <div className="border border-red-900/30 rounded-xl p-6 bg-[#0a0a0a]">
-         <h3 className="text-xs font-mono text-red-500 mb-4 tracking-widest">PANDUAN AFR</h3>
+      <div className="border border-teal-900/30 rounded-xl p-6 bg-[#020b12]">
+         <h3 className="text-xs font-mono text-teal-400 mb-4 tracking-widest">PANDUAN AFR</h3>
          <div className="space-y-1">
             {afrGuide.map((item, i) => (
-              <div key={i} className="flex justify-between p-3 bg-[#111] border-b border-white/5 last:border-0">
+              <div key={i} className="flex justify-between p-3 bg-[#06141c] border-b border-teal-500/10 last:border-0">
                  <span className="text-xs text-gray-400">{item.name}</span>
                  <span className="text-xs font-mono text-green-500">{item.val}</span>
               </div>
@@ -119,11 +119,11 @@ export function TabKarbuInjeksi({ isInjection, totalCc, rasioKompresi }: any) {
          </div>
       </div>
 
-      <div className="border border-red-900/30 rounded-xl p-6 bg-[#0a0a0a]">
-         <h3 className="text-xs font-mono text-red-500 mb-4 tracking-widest">BACA WARNA BUSI</h3>
+      <div className="border border-teal-900/30 rounded-xl p-6 bg-[#020b12]">
+         <h3 className="text-xs font-mono text-teal-400 mb-4 tracking-widest">BACA WARNA BUSI</h3>
          <div className="space-y-2">
             {busiGuide.map((item, i) => (
-              <div key={i} className="flex p-4 rounded-lg bg-[#111] border border-white/5 gap-4">
+              <div key={i} className="flex p-4 rounded-lg bg-[#06141c] border border-teal-500/10 gap-4">
                  <div className={cn("w-3 h-3 rounded-full mt-1 shrink-0", item.dot)}></div>
                  <div>
                     <p className="text-sm font-bold text-gray-200 mb-1">{item.color}</p>

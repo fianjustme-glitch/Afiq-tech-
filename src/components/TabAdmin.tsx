@@ -22,6 +22,8 @@ export function TabAdmin() {
         return 0;
       });
       setUsers(usersData);
+    }, (error) => {
+      console.error("Admin Users snapshot error:", error);
     });
 
     return () => unsubscribe();
@@ -46,24 +48,24 @@ export function TabAdmin() {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
-      <div className="border border-red-500/30 bg-red-950/10 rounded-xl p-6 relative overflow-hidden">
+      <div className="border border-teal-400/30 bg-teal-950/10 rounded-xl p-6 relative overflow-hidden">
         <div className="absolute -right-10 -top-10 opacity-10">
-          <ShieldAlert className="w-48 h-48 text-red-500" />
+          <ShieldAlert className="w-48 h-48 text-teal-400" />
         </div>
         <h3 className="text-xl font-bold text-white mb-2 relative z-10">Admin & Kelola Akun</h3>
         <p className="text-sm text-gray-400 relative z-10 max-w-2xl">
-          Halaman ini khusus untuk Anda (<span className="text-red-400">fianjustme@gmail.com</span>).  
+          Halaman ini khusus untuk Anda (<span className="text-teal-300">fianjustme@gmail.com</span>).  
           Ketika ada user yang konfirmasi pembayaran di WhatsApp, cari email mereka di bawah ini lalu klik tombol "AKTIFKAN" untuk membuka kunci akses website mereka secara instan.
         </p>
       </div>
 
-      <div className="bg-[#111] border border-white/10 rounded-xl p-4">
+      <div className="bg-[#06141c] border border-teal-500/20 rounded-xl p-4">
         <div className="relative mb-6">
           <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
           <input 
             type="text" 
             placeholder="Cari berdasarkan nama atau email email..." 
-            className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg py-3 pl-11 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-red-500/50 transition-colors"
+            className="w-full bg-[#020b12] border border-teal-500/20 rounded-lg py-3 pl-11 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-teal-400/50 transition-colors"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -71,7 +73,7 @@ export function TabAdmin() {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="text-[10px] uppercase font-mono text-gray-500 bg-[#0a0a0a] border-y border-white/5">
+            <thead className="text-[10px] uppercase font-mono text-gray-500 bg-[#020b12] border-y border-teal-500/10">
               <tr>
                 <th className="px-4 py-3">Pengguna</th>
                 <th className="px-4 py-3">Email</th>
@@ -88,11 +90,11 @@ export function TabAdmin() {
                 </tr>
               ) : (
                 filteredUsers.map((u) => (
-                  <tr key={u.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                  <tr key={u.id} className="border-b border-teal-500/10 hover:bg-white/5 transition-colors">
                     <td className="px-4 py-4">
                       <div className="flex items-center gap-3">
                         {u.photoURL ? (
-                          <img src={u.photoURL} alt="Avatar" className="w-8 h-8 rounded-full border border-white/10" />
+                          <img src={u.photoURL} alt="Avatar" className="w-8 h-8 rounded-full border border-teal-500/20" />
                         ) : (
                           <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center font-bold text-gray-400">
                             {u.name?.charAt(0) || '?'}
@@ -117,15 +119,15 @@ export function TabAdmin() {
                     </td>
                     <td className="px-4 py-4 text-right">
                       {u.email === 'fianjustme@gmail.com' ? (
-                        <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-1 rounded">ADMIN (Otomatis)</span>
+                        <span className="text-xs font-mono text-teal-400 bg-teal-400/10 px-2 py-1 rounded">ADMIN (Otomatis)</span>
                       ) : (
                         <button
                           onClick={() => toggleAccess(u.id, u.hasPaidAccess)}
                           className={cn(
                             "px-4 py-1.5 rounded text-[10px] font-mono font-bold transition-all border",
                             u.hasPaidAccess 
-                              ? "bg-transparent border-red-500/50 text-red-500 hover:bg-red-500 hover:text-white" 
-                              : "bg-red-600 border-red-600 text-white hover:bg-red-700"
+                              ? "bg-transparent border-teal-400/50 text-teal-400 hover:bg-teal-400 hover:text-white" 
+                              : "bg-teal-500 border-teal-500 text-white hover:bg-teal-600"
                           )}
                         >
                           {u.hasPaidAccess ? 'CABUT AKSES' : 'AKTIFKAN AKSES'}

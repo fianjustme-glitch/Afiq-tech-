@@ -72,15 +72,15 @@ export function TabDaftarKit() {
     <div className="space-y-8 animate-in fade-in duration-500">
       
       {/* Mod List */}
-      <div className="border border-red-900/30 rounded-xl p-6 bg-[#0a0a0a]">
-        <h3 className="text-xs font-mono text-red-500 mb-4 tracking-widest">DAFTAR MODIFIKASI MESIN</h3>
+      <div className="border border-teal-900/30 rounded-xl p-6 bg-[#020b12]">
+        <h3 className="text-xs font-mono text-teal-400 mb-4 tracking-widest">DAFTAR MODIFIKASI MESIN</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {modLists.map((mod, i) => (
             <label 
               key={i} 
               className={cn(
-                "flex gap-4 p-4 rounded-lg bg-[#111] border border-white/5 hover:border-red-500/50 cursor-pointer transition-colors group",
-                modLevel === i && "border-red-500/80 bg-red-950/10"
+                "flex gap-4 p-4 rounded-lg bg-[#06141c] border border-teal-500/10 hover:border-teal-400/50 cursor-pointer transition-colors group",
+                modLevel === i && "border-teal-400/80 bg-teal-950/10"
               )}
             >
               <div className="pt-0.5">
@@ -89,11 +89,11 @@ export function TabDaftarKit() {
                   name="mod_level" 
                   checked={modLevel === i}
                   onChange={() => setModLevel(i)}
-                  className="w-4 h-4 accent-red-600 bg-transparent border-gray-500" 
+                  className="w-4 h-4 accent-teal-500 bg-transparent border-gray-500" 
                 />
               </div>
               <div className="flex-1">
-                <p className={cn("text-sm font-bold transition-colors uppercase tracking-wide", modLevel === i ? "text-red-400" : "text-gray-200 group-hover:text-red-400")}>{mod.name}</p>
+                <p className={cn("text-sm font-bold transition-colors uppercase tracking-wide", modLevel === i ? "text-teal-300" : "text-gray-200 group-hover:text-teal-300")}>{mod.name}</p>
                 <p className={cn("text-xs mt-1 leading-relaxed", modLevel === i ? "text-gray-300" : "text-gray-500")}>{mod.desc}</p>
               </div>
             </label>
@@ -102,19 +102,19 @@ export function TabDaftarKit() {
       </div>
 
       {/* Wajib Ganti / Rekomendasi */}
-      <div className="border border-red-900/30 rounded-xl p-6 bg-[#0a0a0a] relative overflow-hidden">
+      <div className="border border-teal-900/30 rounded-xl p-6 bg-[#020b12] relative overflow-hidden">
         <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
            {modLevel > 2 ? <ShieldAlert className="w-32 h-32" /> : <Wrench className="w-32 h-32" />}
         </div>
         
-        <h3 className="text-xs font-mono text-red-500 mb-4 tracking-widest uppercase flex items-center gap-2">
+        <h3 className="text-xs font-mono text-teal-400 mb-4 tracking-widest uppercase flex items-center gap-2">
           {modLevel === 0 ? "REKOMENDASI PERAWATAN / UPGRADE RINGAN" : "KOMPONEN WAJIB GANTI & REKOMENDASI KIT"}
         </h3>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
           {currentRecs.map((item, i) => (
-            <div key={i} className="flex gap-3 bg-[#111] border border-white/5 p-4 rounded-lg">
-              <div className="min-w-1.5 min-h-1.5 w-1.5 h-1.5 rounded-full bg-red-600 mt-1.5"></div>
+            <div key={i} className="flex gap-3 bg-[#06141c] border border-teal-500/10 p-4 rounded-lg">
+              <div className="min-w-1.5 min-h-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5"></div>
               <div>
                 <span className="text-sm font-bold text-gray-200 block mb-1">{item.title}</span>
                 <span className="text-xs text-gray-400 leading-relaxed block">{item.desc}</span>
