@@ -1,0 +1,6 @@
+{
+  "name": "Afiq tech Calculator",
+  "description": "Performance Engine Bore Up & Exhaust Inlet Calculators by Afiq tech",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

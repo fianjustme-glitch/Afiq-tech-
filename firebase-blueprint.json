@@ -1,0 +1,30 @@
+{
+  "collections": [
+    {
+      "collection_id": "users",
+      "description": "Stores user profiles and access states",
+      "fields": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "photoURL",
+          "type": "string"
+        },
+        {
+          "name": "hasPaidAccess",
+          "type": "boolean"
+        },
+        {
+          "name": "createdAt",
+          "type": "timestamp"
+        }
+      ]
+    }
+  ]
+}
